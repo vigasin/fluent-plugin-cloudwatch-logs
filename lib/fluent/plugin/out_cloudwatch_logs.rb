@@ -219,7 +219,7 @@ module Fluent
           break
         end
 
-        if event_bytesize == 0
+        if event[:message].bytesize == 0
             log.warn "Empty event. Skipping."
             next
         end
