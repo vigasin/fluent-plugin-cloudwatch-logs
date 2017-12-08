@@ -1,5 +1,6 @@
 require 'fluent/output'
 require 'thread'
+require 'aws-sdk-cloudwatch'
 
 module Fluent
   require 'fluent/mixin/config_placeholders'
