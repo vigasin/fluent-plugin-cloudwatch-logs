@@ -219,6 +219,11 @@ module Fluent
           break
         end
 
+        if event_bytesize == 0
+            log.warn "Empty event. Skipping."
+            next
+        end
+
         new_chunk = chunk + [event]
 
         chunk_span_too_big = new_chunk.size > 1 && new_chunk[-1][:timestamp] - new_chunk[0][:timestamp] >= 1000 * 60 * 60 * 24
